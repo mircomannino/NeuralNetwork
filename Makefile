@@ -1,5 +1,6 @@
 # Define parameters
 CC=g++
+SRC=./src
 
 all: testXOR testIRIS
 
@@ -11,23 +12,26 @@ testXOR: utils.o activationFunction.o neuron.o layer.o neuralNetwork.o testXOR.o
 testIRIS: utils.o activationFunction.o neuron.o layer.o neuralNetwork.o testIRIS.o
 	$(CC) -o testIRIS utils.o activationFunction.o neuron.o layer.o neuralNetwork.o testIRIS.o
 
-utils.o: utils.cc
-	$(CC) -c utils.cc
+utils.o: $(SRC)/utils.cc
+	$(CC) -c $(SRC)/utils.cc
 
-activationFunction.o: activationFunction.cc
-	${CC} -c activationFunction.cc
+activationFunction.o: $(SRC)/activationFunction.cc
+	${CC} -c $(SRC)/activationFunction.cc
 
-neuron.o: neuron.cc
-	$(CC) -c neuron.cc
+neuron.o: $(SRC)/neuron.cc
+	$(CC) -c $(SRC)/neuron.cc
 
-layer.o: layer.cc
-	$(CC) -c layer.cc
+layer.o: $(SRC)/layer.cc
+	$(CC) -c $(SRC)/layer.cc
 
-neuralNetwork.o: neuralNetwork.cc
-	$(CC) -c neuralNetwork.cc
+neuralNetwork.o: $(SRC)/neuralNetwork.cc
+	$(CC) -c $(SRC)/neuralNetwork.cc
 
-testXOR.o: testXOR.cc
-	$(CC) -c testXOR.cc
+testXOR.o: $(SRC)/testXOR.cc
+	$(CC) -c $(SRC)/testXOR.cc
+
+testIRIS.o: $(SRC)/testIRIS.cc
+	$(CC) -c $(SRC)/testIRIS.cc
 
 clean:
 	rm -rf *.o testXOR testIRIS

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "include/neuron.h"
+#include "../include/neuron.h"
 #include "../include/layer.h"
 #include "../include/neuralNetwork.h"
 #include "../include/utils.h"
