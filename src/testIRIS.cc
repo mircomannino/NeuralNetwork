@@ -1,8 +1,8 @@
 #include <iostream>
-#include "include/neuron.h"
-#include "include/layer.h"
-#include "include/neuralNetwork.h"
-#include "include/utils.h"
+#include "../include/neuron.h"
+#include "../include/layer.h"
+#include "../include/neuralNetwork.h"
+#include "../include/utils.h"
 using namespace std;
 
 int main() {

@@ -1,4 +1,4 @@
-#include "include/activationFunction.h"
+#include "../include/activationFunction.h"
 
 /* Sigmoid activation */
 double SigmoidActivation::computeActivation(const double a) {

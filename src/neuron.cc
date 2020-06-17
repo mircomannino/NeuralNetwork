@@ -1,4 +1,4 @@
-#include "include/neuron.h"
+#include "../include/neuron.h"
 using namespace std;
 
 /******************************** Class Neuron ********************************/

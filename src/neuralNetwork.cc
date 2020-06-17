@@ -1,4 +1,4 @@
-#include "include/neuralNetwork.h"
+#include "../include/neuralNetwork.h"
 using namespace std;
 
 /*************************** Class NeuralNetwork ******************************/
