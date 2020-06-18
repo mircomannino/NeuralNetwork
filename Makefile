@@ -2,7 +2,7 @@
 CC=g++
 SRC=./src
 
-all: testXOR testIRIS
+all: testXOR testIRIS testAUTOENCODER
 
 # Test for XOR dataset
 testXOR: utils.o activationFunction.o neuron.o layer.o neuralNetwork.o testXOR.o
@@ -11,6 +11,10 @@ testXOR: utils.o activationFunction.o neuron.o layer.o neuralNetwork.o testXOR.o
 # Test for IRIS dataset
 testIRIS: utils.o activationFunction.o neuron.o layer.o neuralNetwork.o testIRIS.o
 	$(CC) -o testIRIS utils.o activationFunction.o neuron.o layer.o neuralNetwork.o testIRIS.o
+
+# Test for Autoencoder
+testAUTOENCODER: utils.o activationFunction.o neuron.o layer.o neuralNetwork.o testAUTOENCODER.o
+	$(CC) -o testAUTOENCODER utils.o activationFunction.o neuron.o layer.o neuralNetwork.o testAUTOENCODER.o
 
 utils.o: $(SRC)/utils.cc
 	$(CC) -c $(SRC)/utils.cc
@@ -32,6 +36,9 @@ testXOR.o: $(SRC)/testXOR.cc
 
 testIRIS.o: $(SRC)/testIRIS.cc
 	$(CC) -c $(SRC)/testIRIS.cc
+
+testAUTOENCODER.o: $(SRC)/testAUTOENCODER.cc
+	$(CC) -c $(SRC)/testAUTOENCODER.cc
 
 clean:
 	rm -rf *.o testXOR testIRIS
