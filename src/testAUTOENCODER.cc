@@ -2,14 +2,14 @@
 using namespace std;
 
 int main() {
-    vector<int> architecture = {4, 3, 3, 2, 4};
+    vector<int> architecture = {4, 3, 2, 3, 4};
     string activationType = "sigmoid";
 
     NeuralNetwork nn(architecture, activationType);
 
-    double learingRate = 0.9;
-    int nEpochs = 1000;
-    int miniBatchSize = 256;
+    double learingRate = 0.01;
+    int nEpochs = 5000;
+    int miniBatchSize = 250;
     nn.train("./dataAUTOENCODER/AUTOENCODER.train", learingRate, nEpochs, miniBatchSize);
 
     // Non si fa, mannaggia alla miseria
