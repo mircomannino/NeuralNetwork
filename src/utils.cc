@@ -14,6 +14,19 @@ double dotProduct(std::vector<double> x1, std::vector<double> x2) {
 }
 /******************************************************************************/
 
+/******************* Split a string into a vector *****************************/
+std::vector<double> splitString(const std::string& inputString) {
+    istringstream is(inputString);
+    std::vector<double> result;
+
+    double value;
+    while(is >> value) {
+        result.push_back(value);
+    }
+    return result;
+}
+/******************************************************************************/
+
 /**************************** Activation functions ****************************/
 // Sigmoid
 double sigmoid(const double a) {

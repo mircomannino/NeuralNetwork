@@ -8,14 +8,17 @@ using namespace std;
 
 int main() {
 
-    constexpr int N = 20;
+    constexpr int N = 1;
 
     double totalTime = 0.0;
     for(int i = 0; i < N; i++) {
         auto startTime = std::chrono::steady_clock::now();
-        vector<int> architecture = {5, 3, 1};
+        vector<int> architecture = {2, 4, 8};
 
         NeuralNetwork nn(architecture, "sigmoid");
+
+        nn.loadWeigths("./trainedModels/trained_model.txt");
+        nn.printInfo();
 
         std::vector<double> input{0.5, 0.5, 0.5, 0.5, 0.5};
         std::vector<double> output = nn.predict(input);
@@ -25,4 +28,6 @@ int main() {
         totalTime += std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count()/1000.0;
     }
     std::cout << "time: " << totalTime/N  << std::endl;
+
+
 }

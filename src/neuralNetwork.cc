@@ -42,6 +42,37 @@ std::vector<double> NeuralNetwork::predictAndSave(const vector<double> x, vector
     return currentOutput;
 }
 
+// Method to load weigths from a file
+void NeuralNetwork::loadWeigths(const std::string& filePath) {
+    std::ifstream is(filePath);
+    if(!is.good()) {
+        std::cerr << "Error in opening file: " << filePath << std::endl;
+        return;
+    }
+
+    for(auto& layer : layers) {
+        // Get weights of Neurons
+        std::string weightsLine_str = "";
+        std::getline(is, weightsLine_str);
+        std::vector<double> weightsLine = splitString(weightsLine_str);
+
+        // Get bias of neurons
+        std::string biasLine_str = "";
+        std::getline(is, biasLine_str);
+        std::vector<double> biasLine = splitString(biasLine_str);
+
+        // Assign weights and bias to netowrk neurons
+        for(size_t i = 0; i < layer.getLayerDim(); i++) {
+            for(size_t j = 0; j < layer.getLayerNeuronDim(); j++) {
+                layer.getNeuron(i).setWeight(j, weightsLine[i*layer.getLayerNeuronDim() + j]);
+            }
+            layer.getNeuron(i).setBias(biasLine[i]);
+        }
+    }
+
+
+}
+
 // TODO:    Aggiungere il salvataggio di tutte le attivazioni ai, per cambiare il tipo di attivazione in backprop
 void NeuralNetwork::train(const std::string& filePath, double learingRate, int nEpochs, int miniBatchSize) {
     // Read the trainingSet from file

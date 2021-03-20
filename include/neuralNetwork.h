@@ -24,6 +24,7 @@ public:
     NeuralNetwork(const std::vector<int> architecture, const std::string activationType);
     std::vector<double> predict(const std::vector<double> x);
     std::vector<double> predictAndSave(const std::vector<double> x, std::vector<std::vector<double>>& intermediateOutput);
+    void loadWeigths(const std::string& filePath);
     void train(const std::string& filePath, double learingRate, int nEpochs, int miniBatchSize);
     double test(const std::string& filePath);
     void printInfo() const;
