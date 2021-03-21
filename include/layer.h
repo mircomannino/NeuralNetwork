@@ -7,6 +7,7 @@
 class Layer {
 private:
     std::vector<Neuron> neurons;
+    SoftmaxActivation* softmaxActivation;
 public:
     Layer() {}
     Layer(const int layerDim, const int weightDim, const std::string activationType);

@@ -21,7 +21,7 @@ private:
         std::vector<std::vector<double>>& patterns
     );
 public:
-    NeuralNetwork(const std::vector<int> architecture, const std::string activationType);
+    NeuralNetwork(const std::vector<int> architecture, const std::vector<std::string>& activations);
     std::vector<double> predict(const std::vector<double> x);
     std::vector<double> predictAndSave(const std::vector<double> x, std::vector<std::vector<double>>& intermediateOutput);
     void loadWeigths(const std::string& filePath);

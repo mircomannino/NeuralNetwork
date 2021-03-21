@@ -6,7 +6,7 @@ all: testXOR testIRIS testAUTOENCODER testTime
 
 # Test for XOR dataset
 testXOR: utils.o activationFunction.o neuron.o layer.o neuralNetwork.o testXOR.o
-	$(CC) -o testXOR utils.o activationFunction.o neuron.o layer.o neuralNetwork.o testXOR.o
+	$(CC) -o testXOR utils.o activationFunction.o neuron.o layer.o neuralNetwork.o testXOR.o 
 
 # Test for IRIS dataset
 testIRIS: utils.o activationFunction.o neuron.o layer.o neuralNetwork.o testIRIS.o

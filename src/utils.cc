@@ -12,6 +12,26 @@ double dotProduct(std::vector<double> x1, std::vector<double> x2) {
     }
     return result;
 }
+
+int argMax(const std::vector<double>& v) {
+    int argMax = 0;
+    double maxVal = 0.0;
+    for(int i = 0; i < v.size(); i++) {
+        if(v[i] > maxVal) {
+            maxVal = v[i];
+            argMax = i;
+        }
+    }
+    return argMax;
+}
+
+void printVector(const std::vector<double>& v) {
+    std::cout << "[";
+    for(auto el : v) {
+        std::cout << el << ", ";
+    }
+    std::cout << "]\n";
+}
 /******************************************************************************/
 
 /******************* Split a string into a vector *****************************/

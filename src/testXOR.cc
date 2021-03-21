@@ -8,7 +8,7 @@ using namespace std;
 int main() {
     vector<int> architecture = {2, 3, 1};
 
-    NeuralNetwork nn(architecture, "sigmoid");
+    NeuralNetwork nn(architecture, std::vector<std::string>{"sigmoid", "sigmoid"});
 
     double learingRate = 0.1;
     int nEpochs = 10000;

@@ -11,7 +11,7 @@ int main() {
     cout << "VERSICOLOR: [0, 1 0]" << endl;
     cout << "VIRGINICA: [0, 0, 1]" << endl;
 
-    NeuralNetwork nn(architecture, "sigmoid");
+    NeuralNetwork nn(architecture, std::vector<std::string>{"sigmoid", "sigmoid", "sigmoid"});
 
     double learingRate = 0.05;
     int nEpochs = 1000;

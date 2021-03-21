@@ -3,12 +3,12 @@ using namespace std;
 
 /*************************** Class NeuralNetwork ******************************/
 // Constructor
-NeuralNetwork::NeuralNetwork(const std::vector<int> architecture, const std::string activationType) {
+NeuralNetwork::NeuralNetwork(const std::vector<int> architecture, const std::vector<std::string>& activations) {
     // architecture = [3, 10, 4] --> dimInput:3, dimHidden:10, dimOutput:4
     this->architecture = architecture;
     // Creation of all the layers
     for(int i = 1; i < architecture.size(); i++) {
-        Layer newLayer(architecture[i], architecture[i-1], activationType);
+        Layer newLayer(architecture[i], architecture[i-1], activations[i-1]);
         this->layers.push_back(newLayer);
     }
 }

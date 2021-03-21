@@ -4,6 +4,7 @@ using namespace std;
 /*************************** Class Layer **************************************/
 // Constructor
 Layer::Layer(const int layerDim, const int weightDim, const std::string activationType) {
+    softmaxActivation = (activationType == "softmax") ? (new SoftmaxActivation) : NULL;
     for(int i = 0; i < layerDim; i++) {
         this->neurons.push_back(Neuron(weightDim, activationType));
     }
@@ -13,10 +14,20 @@ Layer::Layer(const int layerDim, const int weightDim, const std::string activati
 std::vector<double> Layer::computeOutput(const std::vector<double> x) {
     // Check if the dimensione of the input and the neurons are the same
     if(x.size() != this->getLayerNeuronDim()) return vector<double>{};
-    // Compute the result
+
     vector<double> result;
-    for(int i = 0; i < this->neurons.size(); i++) {
-        result.push_back(this->neurons[i].computeOutput(x));
+    if(softmaxActivation != NULL) {
+        std::vector<double> allActivations;
+        for(int i = 0; i < this->neurons.size(); i++) {
+            allActivations.push_back(this->neurons[i].computeOutput(x));
+        }
+        for(int i = 0; i < this->neurons.size(); i++) {
+            result.push_back(softmaxActivation->computeActivation(i, allActivations));
+        }
+    } else {
+        for(int i = 0; i < this->neurons.size(); i++) {
+            result.push_back(this->neurons[i].computeOutput(x));
+        }
     }
 
     return result;

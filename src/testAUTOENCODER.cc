@@ -5,7 +5,7 @@ int main() {
     vector<int> architecture = {4, 3, 2, 3, 4};
     string activationType = "sigmoid";
 
-    NeuralNetwork nn(architecture, activationType);
+    NeuralNetwork nn(architecture, std::vector<std::string>{"sigmoid", "sigmoid", "sigmoid", "sigmoid"});
 
     double learingRate = 0.01;
     int nEpochs = 5000;
